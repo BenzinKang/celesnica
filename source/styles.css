@@ -1068,20 +1068,17 @@ html.js .dg.rec:not(.drawn) .rec-arm-g{transform:rotate(-17deg)}
 
 /* ---------- Release Card Hover Lift ---------- */
 
-.rsec .card .cover {
-  transition:
-    transform 0.5s var(--ease),
-    box-shadow 0.5s var(--ease);
-}
+/* Main project cards: li.card > .cover */
+.rsec .cards > li.card:is(:hover, :focus-within) > .cover,
 
-.rsec .card:hover .cover,
-.rsec .card:focus-within .cover {
+/* Remixes cards: li > div.card > .cover */
+.rsec .cards > li > .card:is(:hover, :focus-within) > .cover {
   transform: translate(-5px, -5px);
   box-shadow: 10px 10px 0 var(--lime);
 }
 
-/* Paper theme: blue offset shadow */
-.rsec.t-paper .card:hover .cover,
-.rsec.t-paper .card:focus-within .cover {
+/* Paper sections use blue offset shadow */
+.rsec.t-paper .cards > li.card:is(:hover, :focus-within) > .cover,
+.rsec.t-paper .cards > li > .card:is(:hover, :focus-within) > .cover {
   box-shadow: 10px 10px 0 var(--blue);
 }
