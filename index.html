@@ -5324,7 +5324,7 @@ const Intro = {
     const hold = setTimeout(finish, LOCK + 1000);
     await finished;
     clearTimeout(hold);
-    await Shutter.cover('Celesnica', 'Signal locked', true);
+    await Shutter.cover('Celesnica', 'Signal locked');
     cancelAnimationFrame(frame);
     el.hidden = true;
     this.visible = false;
