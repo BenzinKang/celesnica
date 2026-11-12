@@ -1,0 +1,768 @@
+<a class="skip" href="#main">Skip to content</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 0C12.9 7.6 16.4 11.1 24 12 16.4 12.9 12.9 16.4 12 24 11.1 16.4 7.6 12.9 0 12 7.6 11.1 11.1 7.6 12 0Z"/></symbol>
+  <!-- original channel glyphs, drawn in the site's 45° language -->
+  <symbol id="i-stream" viewBox="0 0 24 24"><path fill="currentColor" d="M2 21v-6l4-4v10zM9.5 21V10l4-4v15zM17 21V5l4-4v20z"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path fill="currentColor" d="M1 10h2.6v4H1zM5.2 7h2.6v10H5.2zM9.4 3h2.6v18H9.4zM13.6 8h2.6v8h-2.6zM17.8 5h2.6v14h-2.6zM22 9.5h1.6v5H22z"/></symbol>
+  <symbol id="i-frame" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" d="M2.5 8.5v-6h6M15.5 2.5h6v6M21.5 15.5v6h-6M8.5 21.5h-6v-6"/><path fill="currentColor" d="M12 6.8l5.2 5.2-5.2 5.2L6.8 12z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h5.2L22 22h-5.2zM16.8 2H22L7.2 22H2z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" d="M6.5 4.1h16.4v12.2l-3.6 3.6H1.1V9.5z"/><path fill="currentColor" d="M9.6 8.2l6.8 3.8-6.8 3.8z"/></symbol>
+  <symbol id="i-disc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" d="M7 2.1h10l5 5v10l-5 5H7l-5-5V7z"/><path fill="currentColor" d="M12 9.2l2.8 2.8-2.8 2.8-2.8-2.8zM15.4 4.6h3.2l1.8 1.8v3.2z"/></symbol>
+  <symbol id="i-jedm" viewBox="0 0 24 24"><path fill="currentColor" d="M1.5 21.5L13 4h5L6.5 21.5zM11 21.5l7.6-11.4h4.9l-7.6 11.4z"/></symbol>
+  <symbol id="i-organic" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" d="M12 1.8l9 5.1v10.2l-9 5.1-9-5.1V6.9z"/><path fill="currentColor" d="M12 8.6l3 1.7v3.4l-3 1.7-3-1.7v-3.4z"/></symbol>
+  <symbol id="i-missions" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" d="M2.5 8.5v-6h6M15.5 2.5h6v6M21.5 15.5v6h-6M8.5 21.5h-6v-6M12 7v10M7 12h10"/></symbol>
+  <symbol id="i-worlds" viewBox="0 0 24 24"><path fill="currentColor" d="M1 3.5h5.2l8.5 8.5-8.5 8.5H1L9.5 12zM9.8 3.5H15l8.5 8.5-8.5 8.5H9.8l8.5-8.5z"/></symbol>
+  <symbol id="i-c" viewBox="-.2 -.2 10.4 11"><path fill="currentColor" d="M1.9 5.2L0 5.2L0 2.7L2.7 0L7.6 0L8.4 .8L7.3 1.9L3.4 1.9L1.9 3.4ZM1.9 5.4L0 5.4L0 7.9L2.7 10.6L7.6 10.6L8.4 9.8L7.3 8.7L3.4 8.7L1.9 7.2Z"/><path style="fill:var(--ctip,#c8ff2e)" d="M8.7 1.1L10 2.4L10 3.5L6.3 3.5ZM8.7 9.5L10 8.2L10 7.1L6.3 7.1Z"/></symbol>
+</svg>
+<canvas id="field" aria-hidden="true"></canvas>
+
+<div class="frame" aria-hidden="true">
+  <span class="fr-line"></span>
+  <span class="fc fc-tl"></span><span class="fc fc-tr"></span><span class="fc fc-bl"></span><span class="fc fc-br"></span>
+  <span class="fk fk-tl"></span><span class="fk fk-tr"></span>
+  <svg class="fs fs-l"><use href="#i-star"/></svg><svg class="fs fs-r"><use href="#i-star"/></svg>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#home" aria-label="CELESNICA, home" data-cur="Home"><span class="cmark" data-cmark></span><span class="logo-t">CELESNICA</span></a>
+    <nav class="pills" aria-label="Primary">
+      <a class="jr-opt" href="#home" data-nav="home" data-cur="Go"><i>01</i>Home</a>
+      <a class="jr-opt" href="#information" data-nav="information" data-cur="Go"><i>02</i>Information</a>
+      <a class="jr-opt" href="#releases" data-nav="releases" data-cur="Go"><i>03</i>Releases</a>
+      <a class="jr-opt" href="#contact" data-nav="contact" data-cur="Go"><i>04</i>Contact</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav"><span>Menu</span><span class="bars" aria-hidden="true"><i></i><i></i></span></button>
+  </div>
+</header>
+
+<div class="mnav" id="mnav" hidden>
+  <a href="#home" data-nav="home" style="--i:0"><i>[01]</i>Home</a>
+  <a href="#information" data-nav="information" style="--i:1"><i>[02]</i>Information</a>
+  <a href="#releases" data-nav="releases" style="--i:2"><i>[03]</i>Releases</a>
+  <a href="#contact" data-nav="contact" style="--i:3"><i>[04]</i>Contact</a>
+  <p class="mnav-ghost" aria-hidden="true">Celesnica</p>
+  <div class="mnav-core" aria-hidden="true">
+    <svg class="dg" viewBox="0 0 400 400">
+      <circle class="l" cx="200" cy="200" r="192"/>
+      <g class="spin"><circle class="d" cx="200" cy="200" r="158"/></g>
+      <path id="mnavRingP" fill="none" d="M200,200 m-124,0 a124,124 0 1,1 248,0 a124,124 0 1,1 -248,0"/>
+      <g class="tring" style="transform-origin:200px 200px"><text class="tm tring-t"><textPath href="#mnavRingP">CELESNICA · SIGNAL SOURCE · CH 01 — 04 · CUT AT 45° · INDEPENDENT ARTIST · </textPath></text></g>
+      <g class="spin rev" id="mnavTicks" data-cx="200" data-cy="200"></g>
+      <circle class="l" cx="200" cy="200" r="96"/>
+      <circle class="dot" cx="200" cy="8" r="5"/>
+    </svg>
+    <div class="mnav-c"><canvas class="metal" id="mnavMetal"></canvas><svg class="metal-fb" viewBox="-.2 -.2 10.4 11"><use href="#i-c"/></svg><i class="hc-k a"></i><i class="hc-k b"></i><i class="hc-k c"></i><i class="hc-k d"></i></div>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
+
+<!-- ======================= HOME ======================= -->
+<section class="view" data-view="home" aria-label="Home">
+
+  <section class="hero t-blue dots" id="hero" data-tone="blue">
+    <svg class="dg" id="heroDg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g class="f"><circle cx="110" cy="60" r="230"/><circle cx="1530" cy="950" r="180"/></g>
+      <g id="dgPar">
+        <circle class="l lockring" cx="1000" cy="400" r="300"/>
+        <g class="spin"><circle class="d" cx="1000" cy="400" r="206"/></g>
+        <path id="heroRingP" fill="none" d="M1000,400 m-162,0 a162,162 0 1,1 324,0 a162,162 0 1,1 -324,0"/>
+        <g class="tring" style="transform-origin:1000px 400px"><text class="tm tring-t"><textPath href="#heroRingP">CELESNICA · SIGNAL SOURCE · CH 01 — 04 · CUT AT 45° · INDEPENDENT ARTIST · </textPath></text></g>
+        <g class="spin rev" id="heroTicks"></g>
+        <circle class="l" cx="1000" cy="400" r="128"/>
+        <line class="d" x1="1000" y1="40" x2="1000" y2="770"/>
+        <line class="th" x1="560" y1="400" x2="1460" y2="400"/>
+        <ellipse class="l" cx="1000" cy="400" rx="450" ry="122" transform="rotate(-14 1000 400)"/>
+        <line class="blade" id="dgBlade" pathLength="1" x1="640" y1="760" x2="1360" y2="40"/>
+        <circle class="dot" cx="1000" cy="100" r="5"/>
+        <circle class="dot" cx="788" cy="188" r="5"/>
+        <circle class="ldot" cx="1300" cy="400" r="7"/>
+        <circle class="dot" id="orbDot" cx="1436" cy="291" r="9"/>
+        <path class="l" d="M1312 636 L1150 528"/><path class="l" d="M1150 528 l20 1 m-20 -1 l9 -17"/>
+        <line class="l" x1="60" y1="210" x2="60" y2="470"/>
+        <g class="l"><line x1="60" y1="210" x2="82" y2="210"/><line x1="60" y1="275" x2="74" y2="275"/><line x1="60" y1="340" x2="82" y2="340"/><line x1="60" y1="405" x2="74" y2="405"/><line x1="60" y1="470" x2="82" y2="470"/></g>
+        <text class="ts" x="1318" y="660">B.</text><text class="tm" x="1354" y="660">CH 01 — 04</text>
+        <text class="ts" x="600" y="180">A.</text><text class="tm" x="636" y="180">∠ 45.0°</text>
+        <text class="tm" x="1014" y="64">[ CELESNICA ]</text>
+        <text class="tm" x="92" y="216">128</text><text class="tm" x="92" y="346">64</text><text class="tm" x="92" y="476">0 BPM</text>
+        <g id="dgBars"><rect class="bar" x="470" y="210" width="22" height="100"/><rect class="bar" x="500" y="240" width="22" height="70"/><rect class="bar" x="530" y="190" width="22" height="120"/></g>
+      </g>
+    </svg>
+    <canvas id="scope" aria-hidden="true"></canvas>
+    <div class="hero-x" aria-hidden="true"><i class="hx-v"></i><i class="hx-h"></i></div>
+    <div class="hero-c" id="heroC" aria-hidden="true" data-cur="Charge">
+      <canvas class="metal" id="heroMetal"></canvas>
+      <svg class="metal-fb" viewBox="-.2 -.2 10.4 11"><use href="#i-c"/></svg>
+      <i class="hc-k a"></i><i class="hc-k b"></i><i class="hc-k c"></i><i class="hc-k d"></i>
+    </div>
+    <p class="angle mono" aria-hidden="true"><span id="angH">Find the 45°</span><b id="angV">∠ --.-°</b></p>
+
+    <div class="hero-in wrap">
+      <div class="hero-top">
+        <p class="tag"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg>Independent electronic artist</p>
+        <p class="est"><span class="acc">since</span><b>2026</b><span class="chip">CH 00</span></p>
+      </div>
+      <div></div>
+      <div class="hero-bot">
+        <div class="hero-titles">
+          <h1><span class="wm-fallback">CELESNICA</span><canvas id="wm" aria-hidden="true"></canvas></h1>
+          <p class="tagline"><span class="acc">// Signal from</span><span>Based in Asia</span><span class="tl-k">CH 00 · 45.00</span></p>
+          <p class="roles" id="roles"><span class="on">Independent Artist</span><i>/</i><span>Music Producer</span><i>/</i><span>Sound Engineer</span><i>/</i><span>Label Manager</span><i>/</i><span>Game Composer</span></p>
+        </div>
+        <div class="hero-act">
+          <button class="btn lime" type="button" data-scroll="featured" data-cur="Tune">Tune in <span class="ar dn" aria-hidden="true">↓</span></button>
+          <a class="btn ghost" href="#releases" data-cur="Open">All releases <span class="ar" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tapes tapes-hero" aria-hidden="true">
+    <div class="tape tape-black" data-tape data-speed="1.1"><div class="tape-track"><div class="tape-group">
+      <span>Tune in</span><i class="blk w3"></i><i class="blk w1"></i><i class="blk w2"></i>
+      <span>Cut at 45°</span><i class="blk w4"></i><i class="blk w1"></i>
+      <span>CH 01 — 04</span><i class="blk w2"></i><i class="blk w1"></i><i class="blk w3"></i>
+      <span>Signal from Asia</span><i class="blk w1"></i><i class="blk w4"></i>
+    </div></div></div>
+    <div class="tape tape-lime" data-tape data-speed="-0.85"><div class="tape-track"><div class="tape-group">
+      <span>Celesnica</span><svg class="star"><use href="#i-star"/></svg>
+      <span>Independent Artist</span><svg class="star"><use href="#i-star"/></svg>
+      <span>Music Producer</span><svg class="star"><use href="#i-star"/></svg>
+      <span>Sound Engineer</span><svg class="star"><use href="#i-star"/></svg>
+      <span>Label Manager</span><svg class="star"><use href="#i-star"/></svg>
+      <span>Game Composer</span><svg class="star"><use href="#i-star"/></svg>
+    </div></div></div>
+  </div>
+
+  <section class="sec t-blue dots" id="featured" data-tone="blue" data-side="Latest transmission // CH 02 // 45.00" aria-labelledby="ftH">
+    <p class="gw gw-b" aria-hidden="true" data-ghost>Signal</p>
+    <div class="wrap">
+      <header class="sec-head" data-idx="02">
+        <p class="tag"><b>[02]</b>Latest transmission</p>
+        <h2 class="disp" id="ftH"><span data-scr>Featured</span> <span class="outline" data-scr>Release</span></h2>
+      </header>
+      <div class="tuner">
+        <div class="screen" id="screen" data-sweep>
+          <canvas id="scr" aria-hidden="true"></canvas>
+          <i class="sc-k a" aria-hidden="true"></i><i class="sc-k b" aria-hidden="true"></i>
+          <div class="sc-ov" aria-hidden="true">
+            <span class="sc-row"><span id="scCh">CH 02</span><span>·</span><span id="scF">45.00</span></span>
+            <span class="sig" id="sig"><i></i><i></i><i></i><i></i></span>
+            <span class="sc-st" id="scSt">Locked</span>
+          </div>
+        </div>
+        <div class="tinfo" id="tinfo">
+          <div class="tinfo-top"><span class="chip lime" id="tCh">CH 02</span><span class="freq" id="tF">45.00</span></div>
+          <div class="t-change" id="tBody">
+            <p class="kick" id="tK">Featured · next single</p>
+            <h3 class="disp t-title" id="tT">Incoming</h3>
+            <p class="acc t-artist" id="tA">Celesnica — new single</p>
+            <p class="t-note" id="tN">The next single lands on this channel. Title, artwork and release date will be announced here.</p>
+            <div class="t-tags" id="tG"></div>
+            <div class="btn-row" id="tL"></div>
+          </div>
+        </div>
+      </div>
+      <div class="dial" id="dial">
+        <div class="dial-scale" id="dialScale" aria-hidden="true"></div>
+        <div class="needle" id="needle" role="slider" tabindex="0" aria-label="Tuner frequency" aria-valuemin="40" aria-valuemax="50" aria-valuenow="45" aria-valuetext="45.00, channel 2, featured slot" data-cur="Drag"><span class="needle-r" id="needleR">45.00</span></div>
+      </div>
+      <div class="dial-chips" id="dialChips" role="group" aria-label="Channels"></div>
+    </div>
+  </section>
+
+  <section class="sec t-paper dots has-banner" id="projects" data-tone="paper" data-side="Artist projects // four channels" aria-labelledby="pjH">
+    <p class="gw gw-b" aria-hidden="true" data-ghost>Channels</p>
+    <div class="banner t-black dots" data-tone="black">
+      <div class="wrap bn-in">
+        <header class="sec-head" data-idx="03">
+          <p class="tag"><b>[03]</b>Artist projects</p>
+          <h2 class="disp" id="pjH"><span data-scr>Artist</span> <span class="outline" data-scr>Projects</span></h2>
+        </header>
+      </div>
+    </div>
+    <i class="bn-tape" aria-hidden="true"></i>
+    <div class="wrap">
+      <div class="proj">
+        <div>
+          <ol class="plist">
+            <li><a class="prow" href="#releases-jedm" data-ch="jedm" data-cur="Open"><span class="p-no">CH-01</span><span class="p-name">J-EDM</span><span class="p-desc">Japanese style electronic music</span><span class="p-go" aria-hidden="true">↗</span></a></li>
+            <li><a class="prow" href="#releases-organic" data-ch="organic" data-cur="Open"><span class="p-no">CH-02</span><span class="p-name">Organic</span><span class="p-desc">The exploration of sounds of nature into artistic expressions</span><span class="p-go" aria-hidden="true">↗</span></a></li>
+            <li><a class="prow" href="#releases-missions" data-ch="missions" data-cur="Open"><span class="p-no">CH-03</span><span class="p-name">Missions</span><span class="p-desc">The experiment of narrative expression in sci-fi through blending</span><span class="p-go" aria-hidden="true">↗</span></a></li>
+            <li><a class="prow" href="#releases-worlds" data-ch="worlds" data-cur="Open"><span class="p-no">CH-04</span><span class="p-name">Worlds</span><span class="p-desc">The songs and audios I made for commercial games</span><span class="p-go" aria-hidden="true">↗</span></a></li>
+          </ol>
+          <p class="mono plist-note">Deck sketches are browser synth demos in the spirit of each project, not released tracks.</p>
+        </div>
+
+        <div class="deck" id="deck">
+          <div class="dchips" role="tablist" aria-label="Deck channel">
+            <button class="dk-tab jr-opt" role="tab" id="tab-jedm" data-ch="jedm" aria-selected="true" aria-controls="deckPanel" data-cur="Tune"><svg class="ico" aria-hidden="true"><use href="#i-jedm"/></svg>J-EDM</button>
+            <button class="dk-tab jr-opt" role="tab" id="tab-organic" data-ch="organic" aria-selected="false" aria-controls="deckPanel" tabindex="-1" data-cur="Tune"><svg class="ico" aria-hidden="true"><use href="#i-organic"/></svg>Organic</button>
+            <button class="dk-tab jr-opt" role="tab" id="tab-missions" data-ch="missions" aria-selected="false" aria-controls="deckPanel" tabindex="-1" data-cur="Tune"><svg class="ico" aria-hidden="true"><use href="#i-missions"/></svg>Missions</button>
+            <button class="dk-tab jr-opt" role="tab" id="tab-worlds" data-ch="worlds" aria-selected="false" aria-controls="deckPanel" tabindex="-1" data-cur="Tune"><svg class="ico" aria-hidden="true"><use href="#i-worlds"/></svg>Worlds</button>
+          </div>
+          <div class="monitor" id="monitor">
+            <canvas id="mon" aria-hidden="true"></canvas>
+            <div class="mon-ov" aria-hidden="true">
+              <div class="row"><span class="chip" id="monCode">CH 01</span><span class="mon-live" id="monLive">Idle</span></div>
+              <div></div>
+              <div class="row"><span id="monName">J-EDM // Japanese style</span><span id="monBpm">140 BPM</span></div>
+            </div>
+            <div class="mon-wipe" aria-hidden="true"><i><b></b></i></div>
+          </div>
+          <div class="seq" id="deckPanel" role="tabpanel" aria-labelledby="tab-jedm">
+            <div class="seq-ctrl">
+              <button class="btn sm" id="playBtn" type="button" aria-pressed="false" data-cur="Play"><span id="playT">Play sketch</span><span class="ar" aria-hidden="true">▶</span></button>
+              <button class="btn sm ghost" id="shuffleBtn" type="button" data-cur="Shuffle">Shuffle</button>
+              <button class="btn sm ghost" id="resetBtn" type="button" data-cur="Reset">Reset</button>
+              <span class="sp"></span>
+              <span class="seq-read"><span><b id="bpmV">140</b> BPM</span><span><b id="scaleV">Miyako-bushi</b></span></span>
+            </div>
+            <div class="lanes" id="lanes"></div>
+            <p class="mono seq-hint">Click a step · drag a lead step up or down for pitch · keys <kbd>A</kbd>–<kbd>L</kbd> play notes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec t-blue dots stmt" data-tone="blue" aria-labelledby="stH">
+    <svg class="dg" id="stDg" viewBox="0 0 900 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <circle class="f" cx="470" cy="450" r="380"/>
+      <circle class="l draw" pathLength="1" cx="470" cy="450" r="380"/>
+      <g class="spin rev"><circle class="d" cx="470" cy="450" r="280"/></g>
+      <circle class="l draw" pathLength="1" cx="470" cy="450" r="160"/>
+      <line class="d" x1="470" y1="40" x2="470" y2="860"/>
+      <path class="l draw" id="arcP" pathLength="1" d="M150 650 C 260 330, 520 210, 720 270"/>
+      <path class="l" d="M720 270 l-20 -12 m20 12 l-16 16"/>
+      <circle class="dot" cx="150" cy="650" r="7"/>
+      <circle class="ldot" cx="720" cy="270" r="8"/>
+      <circle class="ldot" id="arcDot" cx="150" cy="650" r="6"/>
+      <text class="ts" x="104" y="712">A.</text><text class="tm" x="140" y="712">NO-ONE CN</text>
+      <text class="ts" x="556" y="330">B.</text><text class="tm" x="592" y="330">CELESNICA — 2026</text>
+      <text class="tm" x="484" y="64">[ ALIAS ]</text>
+    </svg>
+    <div class="wrap stmt-in">
+      <p class="tag"><b>[04]</b>The artist</p>
+      <h2 class="disp" id="stH">From <span class="outline">No&#8209;One&nbsp;CN</span> to <span class="hi">Celesnica</span></h2>
+      <div class="stmt-cols">
+        <p>Celesnica is a <b>music producer and high school student based in Asia</b>, with around four years of production experience across future bass, tech house, UK bass, glitch hop and future garage.</p>
+        <p>He first released music as <b>No-One CN</b>, mainly commercial EDM and collaborations. In early 2026 he launched <b>Celesnica</b> and a more personal artistic direction.</p>
+      </div>
+      <div class="btn-row"><a class="btn lime" href="#information" data-cur="Open">Read the full file <span class="ar" aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+  <section class="loop-sec loop-black t-black cut-tl" data-tone="black" aria-label="Labels he has released on">
+    <div class="loop-band">
+      <p class="loop-cap wrap"><span class="acc">// Released on</span><span>Seven labels · as No&#8209;One CN</span><span class="loop-hint">Drag to scrub</span></p>
+      <div class="loop-host" id="loopLabels"></div>
+    </div>
+  </section>
+
+  <section class="cta t-lime" data-tone="lime" aria-labelledby="ctaH">
+    <svg class="dg ink" viewBox="0 0 900 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <circle class="f" cx="470" cy="450" r="350"/>
+      <circle class="l draw" pathLength="1" cx="470" cy="450" r="350"/>
+      <g class="spin"><circle class="d" cx="470" cy="450" r="290"/><circle class="d" cx="470" cy="450" r="232"/><line class="th" x1="470" y1="100" x2="470" y2="200"/></g>
+      <g class="spin rev"><circle class="d" cx="470" cy="450" r="176"/></g>
+      <circle class="l draw" pathLength="1" cx="470" cy="450" r="74"/>
+      <circle class="dot" cx="470" cy="450" r="8"/>
+      <path class="l" d="M760 132 L730 170 L650 340"/>
+      <circle class="ldot" cx="650" cy="340" r="7"/>
+      <text class="ts" x="596" y="118">A.</text><text class="tm" x="632" y="118">CH 01 — 04</text>
+      <text class="ts" x="116" y="840">B.</text><text class="tm" x="152" y="840">REMIXES &amp; ARCHIVE</text>
+    </svg>
+    <div class="wrap">
+      <p class="tag"><b>[05]</b>Hear it for yourself</p>
+      <h2 class="disp" id="ctaH" data-slice="18">Explore the releases</h2>
+      <div class="btn-row">
+        <a class="btn" href="#releases" data-cur="Open">View releases <span class="ar" aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="#information-links" data-cur="Open">Listen &amp; follow</a>
+      </div>
+    </div>
+  </section>
+  <section class="loop-sec t-lime" data-tone="lime" aria-label="Where to listen">
+    <div class="loop-band ink">
+      <p class="loop-cap wrap"><span class="acc">// Tune in on</span><span>Platforms · CH 01 — 06</span><span class="loop-hint">Hover to magnify</span></p>
+      <div class="loop-host" id="loopPlatforms"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ======================= INFORMATION ======================= -->
+<section class="view" data-view="information" aria-label="Information" hidden>
+  <section class="phero t-blue dots" data-tone="blue">
+    <p class="mega" aria-hidden="true" data-ghost data-gs="-0.6"><span>Who is</span> <span>Celesnica</span> <span>// 2026</span></p>
+    <svg class="dg" id="infoDg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <circle class="f" cx="1180" cy="430" r="330"/>
+      <circle class="l draw" pathLength="1" cx="1180" cy="430" r="330"/>
+      <g class="spin"><circle class="d" cx="1180" cy="430" r="216"/></g>
+      <line class="d" x1="1180" y1="40" x2="1180" y2="900"/>
+      <circle class="dot" cx="1180" cy="100" r="7"/>
+      <path class="l draw" pathLength="1" d="M820 900 C 1000 760, 1280 700, 1640 690"/>
+      <text class="ts" x="1244" y="740">A.</text><text class="tm" x="1280" y="740">ALIAS — 2026</text>
+    </svg>
+    <div class="info-c" id="infoC" aria-hidden="true" data-cur="Charge">
+      <canvas class="metal" id="infoMetal"></canvas>
+      <svg class="metal-fb" viewBox="-.2 -.2 10.4 11"><use href="#i-c"/></svg>
+      <i class="hc-k a"></i><i class="hc-k b"></i><i class="hc-k c"></i><i class="hc-k d"></i>
+    </div>
+    <div class="ruler" aria-hidden="true"><span>2026</span><i></i><span>Before</span></div>
+    <div class="phero-in wrap">
+      <p class="tag"><b>[02]</b>Information</p>
+      <h1 class="disp" data-st>Who is<br>Celesnica</h1>
+      <p class="lede">Celesnica is a 17-year-old music producer and high school student based in Asia.</p>
+      <div class="phero-pills"><span class="chip">Since <b>early 2026</b></span><span class="chip">Formerly <b>No-One CN</b></span></div>
+    </div>
+  </section>
+  <div class="tapes tapes-hero" aria-hidden="true">
+    <div class="tape tape-black" data-tape data-speed="1"><div class="tape-track"><div class="tape-group">
+      <span>Future bass</span><i class="blk w2"></i><i class="blk w1"></i><span>Tech house</span><i class="blk w3"></i><span>UK bass</span><i class="blk w1"></i><i class="blk w2"></i><span>Glitch hop</span><i class="blk w4"></i><span>Future garage</span><i class="blk w1"></i><span>And beyond</span><i class="blk w3"></i>
+    </div></div></div>
+    <div class="tape tape-lime" data-tape data-speed="-0.8"><div class="tape-track"><div class="tape-group">
+      <span>Basic information</span><svg class="star"><use href="#i-star"/></svg><span>No-One CN</span><svg class="star"><use href="#i-star"/></svg><span>Celesnica</span><svg class="star"><use href="#i-star"/></svg><span>2088 Records</span><svg class="star"><use href="#i-star"/></svg>
+    </div></div></div>
+  </div>
+
+  <section class="sec t-paper dots" data-tone="paper" data-side="Profile // file 02-A" aria-labelledby="biH">
+    <p class="gw gw-b" aria-hidden="true" data-ghost>Profile</p>
+    <div class="wrap basic">
+      <div>
+        <p class="tag" style="margin-bottom:22px"><b>[A]</b>Profile</p>
+        <h2 class="disp" id="biH">Basic <span class="hi">Information</span></h2>
+        <div class="body-t"><p>Celesnica is a 17-year-old music producer and high school student based in Asia. With around four years of production experience, he explores electronic music across <b>future bass, tech house, UK bass, glitch hop, future garage, and beyond.</b></p></div>
+      </div>
+      <dl class="readout" data-sweep>
+        <div><dt>Age</dt><dd>17</dd></div>
+        <div><dt>Base</dt><dd>Asia</dd></div>
+        <div><dt>Experience</dt><dd>Around four years</dd></div>
+        <div><dt>Alias</dt><dd>Celesnica <span class="acc">since early 2026</span></dd></div>
+        <div><dt>Previous alias</dt><dd>No-One CN</dd></div>
+        <div><dt>Roles</dt><dd>Independent artist, music producer, sound engineer, label manager, game composer</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec t-blue dots" data-tone="blue" data-side="History // two aliases" aria-labelledby="alH">
+    <p class="gw gw-b" aria-hidden="true" data-ghost>History</p>
+    <div class="wrap">
+      <header class="sec-head" data-idx="B">
+        <p class="tag"><b>[B]</b>History</p>
+        <h2 class="disp" id="alH"><span data-scr>Two</span> <span class="outline" data-scr>Aliases</span></h2>
+      </header>
+      <div class="scrub" id="scrub">
+        <div class="alias"><p class="alias-n" id="aliasN" aria-live="polite">Celesnica</p><p class="mono alias-s" id="aliasS">Early 2026 — now</p></div>
+        <div class="track" id="track">
+          <div class="track-line"></div><div class="track-seg"></div>
+          <div class="knob" id="knob" role="slider" tabindex="0" aria-label="Timeline position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="98" aria-valuetext="Now, Celesnica" data-cur="Drag"></div>
+        </div>
+        <p class="callout" id="callout"></p>
+      </div>
+      <div class="eras">
+        <article class="era off" id="eraA">
+          <div class="era-when"><span class="chip line">Before early 2026</span></div>
+          <h3>No-One CN</h3>
+          <p>Before launching Celesnica in early 2026, he released music under the alias No-One CN, focusing mainly on commercial EDM and collaborative projects. During this period, he was a member of Tencent Tengfei Alliance and served as the head of Trailblazers Radar. He was shortlisted for Music China 2024, placed 2nd in China and 14th globally in the SKIO Music x Nurko “Retraced” Remix Contest, and contributed music to the Magnolia International Music Festival in China. His releases appeared on labels including SN, 2088 RECORDS, Stardust Records, Quadrant Shield, Vultures Records, Taisheng Music, and Diary Music, with his Stardust Records releases accumulating over 100K Spotify streams.</p>
+        </article>
+        <article class="era on" id="eraB">
+          <div class="era-when"><span class="chip lime">Early 2026 — now</span></div>
+          <h3>Celesnica</h3>
+          <p>As Celesnica, he has expanded into a wider range of electronic styles and developed a more personal artistic direction. He actively builds his presence across Instagram, Spotify, and SoundCloud, and has contributed music to Yostar's Stella Sora. He is a member of Guangzhou Zhacai Music Studio, a manager and website developer at 2088 RECORDS, and a team member and artist at VISION SOUND. He also won Vesk Green's “未眠 (No Sleep)” Remix Contest, earning an official release for his remix.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec t-black dots cut-tl board" data-tone="black" data-side="On record // numbers" aria-labelledby="nuH">
+    <div class="wrap">
+      <header class="sec-head" data-idx="C">
+        <p class="tag"><b>[C]</b>On record</p>
+        <h2 class="disp" id="nuH"><span data-scr>By the</span> <span class="outline" data-scr>numbers</span></h2>
+      </header>
+      <div class="nums">
+        <div class="num"><p class="num-v" data-count="100" data-suf="K+" data-slice="10">100K+</p><h3>Spotify streams</h3><p>Across his Stardust Records releases.</p></div>
+        <div class="num"><p class="num-v" data-slice="8">2ND</p><h3>In China</h3><p>SKIO Music x Nurko “Retraced” Remix Contest, 14th globally.</p></div>
+        <div class="num"><p class="num-v" data-count="7" data-pad="2" data-slice="8">07</p><h3>Labels</h3><p>SN, 2088 RECORDS, Stardust Records, Quadrant Shield, Vultures Records, Taisheng Music and Diary Music.</p></div>
+        <div class="num"><p class="num-v" data-slice="8">≈4</p><h3>Years producing</h3><p>Future bass, tech house, UK bass, glitch hop, future garage and beyond.</p></div>
+      </div>
+    </div>
+    <div class="loop-band" aria-label="The seven labels">
+      <p class="loop-cap wrap"><span class="acc">// 07 labels on file</span><span>Released as No-One CN</span><span class="loop-hint">Drag to scrub</span></p>
+      <div class="loop-host" id="loopArc"></div>
+    </div>
+  </section>
+
+  <section class="sec t-lime" data-tone="lime" data-anchor="information-links" aria-labelledby="lkH">
+    <div class="wrap">
+      <div class="lk-head">
+        <header class="sec-head">
+          <p class="tag"><b>[D]</b>Find Celesnica</p>
+          <h2 class="disp" id="lkH"><span data-scr>Listen</span> <span class="outline">&amp; follow</span></h2>
+        </header>
+        <div class="orbit-wrap" aria-hidden="true">
+          <div class="orbit-c"><svg viewBox="-.2 -.2 10.4 11"><use href="#i-c"/></svg></div>
+          <div class="loop-host" id="loopOrbit"></div>
+        </div>
+      </div>
+      <div class="links">
+        <a class="lt" href="https://www.instagram.com/celesnicamusic/" target="_blank" rel="noopener" data-cur="Open"><span class="lt-top"><span class="lt-n">01</span><span class="lt-st">Open ↗</span></span><svg class="lt-ico" aria-hidden="true"><use href="#i-frame"/></svg><span class="lt-name">Instagram</span><span class="lt-h">@celesnicamusic</span></a>
+        <a class="lt" href="https://soundcloud.com/celesnica" target="_blank" rel="noopener" data-cur="Open"><span class="lt-top"><span class="lt-n">02</span><span class="lt-st">Open ↗</span></span><svg class="lt-ico" aria-hidden="true"><use href="#i-wave"/></svg><span class="lt-name">SoundCloud</span><span class="lt-h">soundcloud.com/celesnica</span></a>
+        <div class="lt pend" aria-label="X, link coming soon"><span class="lt-top"><span class="lt-n">03</span><span class="lt-st">Pending</span></span><svg class="lt-ico" aria-hidden="true"><use href="#i-x"/></svg><span class="lt-name">X</span><span class="lt-h">Link coming soon</span></div>
+        <a class="lt" href="https://open.spotify.com/artist/3Y2WqblqWtFfsFufyvIwDU" target="_blank" rel="noopener" data-cur="Open"><span class="lt-top"><span class="lt-n">04</span><span class="lt-st">Open ↗</span></span><svg class="lt-ico" aria-hidden="true"><use href="#i-stream"/></svg><span class="lt-name">Spotify</span><span class="lt-h">Artist page</span></a>
+        <a class="lt" href="https://youtube.com/@celesnica?si=y1GzksclObeIhuR9" target="_blank" rel="noopener" data-cur="Open"><span class="lt-top"><span class="lt-n">05</span><span class="lt-st">Open ↗</span></span><svg class="lt-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="lt-name">YouTube</span><span class="lt-h">@celesnica</span></a>
+        <a class="lt" href="https://163cn.tv/bkLNYZ0R" target="_blank" rel="noopener" data-cur="Open"><span class="lt-top"><span class="lt-n">06</span><span class="lt-st">Open ↗</span></span><svg class="lt-ico" aria-hidden="true"><use href="#i-disc"/></svg><span class="lt-name">NetEase Cloud Music</span><span class="lt-h">Artist page</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec t-blue dots label-sec" data-tone="blue" data-side="The label // est. 2019" aria-labelledby="lbH">
+    <div class="wrap lbs">
+      <div class="lbs-l">
+        <p class="tag"><b>[E]</b>The label</p>
+        <h2 class="disp" id="lbH">2088 <span class="hi">Records</span></h2>
+        <p class="acc label-tl">// Coming into the future world</p>
+        <p class="sr">An independent electronic music label founded in 2019 by N2V, working across electro, ambient and experimental music. Celesnica is a manager and website developer at 2088 RECORDS, and a team member and artist at VISION SOUND, the label's game-project department.</p>
+        <a class="btn lime" href="https://2088.studio/" target="_blank" rel="noopener" data-cur="Visit">Visit 2088 Records <span class="ar" aria-hidden="true">↗</span></a>
+      </div>
+      <div class="lbs-stage" id="slv">
+        <div class="lbs-tilt" id="slvTilt">
+          <div class="lbs-rec" id="slvRec">
+            <button class="lbs-disc" id="slvDisc" type="button" aria-pressed="false" aria-label="Pull the record out of the sleeve" data-cur="Drag">
+              <span class="lbs-lab" aria-hidden="true"><b>2088</b><i>Side A · 45</i></span>
+            </button>
+            <i class="lbs-shine" aria-hidden="true"></i>
+          </div>
+          <button class="lbs-card" id="slvCard" type="button" aria-pressed="false" aria-label="Flip the sleeve" data-cur="Flip">
+            <span class="lbs-face lbs-front" aria-hidden="true">
+              <span class="lbs-wear"></span>
+              <span class="lbs-top"><span>2088 Records</span><span>CAT. 2088—001</span></span>
+              <span class="lbs-num"><span>20</span><span>88</span></span>
+              <span class="lbs-bot"><span>Est. 2019 · N2V</span><i class="lbs-bar"></i></span>
+              <span class="lbs-stk"><b>Vision<br>Sound</b><small>Game dept.</small></span>
+              <span class="lbs-gloss"></span>
+            </span>
+            <span class="lbs-face lbs-back" aria-hidden="true">
+              <span class="lbs-bh"><b>2088 Records</b><i>// Coming into the future world</i></span>
+              <span class="lbs-side">Side A</span>
+              <span class="lbs-tr"><em>A1</em><span>Founded</span><u></u><span>2019 · N2V</span></span>
+              <span class="lbs-tr"><em>A2</em><span>Sound</span><u></u><span>Electro · Ambient · Exp.</span></span>
+              <span class="lbs-side">Side B</span>
+              <span class="lbs-tr"><em>B1</em><span>Vision Sound</span><u></u><span>Game dept.</span></span>
+              <span class="lbs-tr"><em>B2</em><span>Celesnica</span><u></u><span>Manager · Web dev</span></span>
+              <span class="lbs-bf"><i class="lbs-bar"></i><span>&#8471; 2019 2088 Records<br>2088.studio</span></span>
+              <span class="lbs-gloss"></span>
+            </span>
+          </button>
+        </div>
+        <p class="lbs-np" id="slvNp" aria-live="polite"><i aria-hidden="true"></i><span>In the sleeve</span></p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ======================= RELEASES ======================= -->
+<section class="view" data-view="releases" aria-label="Releases" hidden>
+  <section class="phero t-blue dots" data-tone="blue">
+    <p class="mega" aria-hidden="true" data-ghost data-gs="-0.6"><span>Archive</span> <span>CH 01—04</span> <span>// Releases</span></p>
+    <svg class="dg rec" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <path id="recLabelP" fill="none" d="M1130,500 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/>
+        <linearGradient id="recSheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f8ff" stop-opacity=".16"/><stop offset="1" stop-color="#f7f8ff" stop-opacity="0"/></linearGradient>
+      </defs>
+      <circle class="f" cx="1130" cy="500" r="352"/>
+      <circle class="l draw" pathLength="1" cx="1130" cy="500" r="352"/>
+      <g class="rec-spin">
+        <circle class="rec-strobe" cx="1130" cy="500" r="336"/>
+        <circle class="rec-disc" cx="1130" cy="500" r="314"/>
+        <g class="rec-grooves"><circle cx="1130" cy="500" r="144"/><circle cx="1130" cy="500" r="147.2"/><circle cx="1130" cy="500" r="150.39999999999998"/><circle cx="1130" cy="500" r="153.59999999999997"/><circle cx="1130" cy="500" r="156.79999999999995"/><circle cx="1130" cy="500" r="159.99999999999994"/><circle cx="1130" cy="500" r="163.19999999999993"/><circle cx="1130" cy="500" r="166.39999999999992"/><circle cx="1130" cy="500" r="169.5999999999999"/><circle cx="1130" cy="500" r="172.7999999999999"/><circle cx="1130" cy="500" r="175.9999999999999"/><circle cx="1130" cy="500" r="184"/><circle cx="1130" cy="500" r="187.2"/><circle cx="1130" cy="500" r="190.39999999999998"/><circle cx="1130" cy="500" r="193.59999999999997"/><circle cx="1130" cy="500" r="196.79999999999995"/><circle cx="1130" cy="500" r="199.99999999999994"/><circle cx="1130" cy="500" r="203.19999999999993"/><circle cx="1130" cy="500" r="206.39999999999992"/><circle cx="1130" cy="500" r="209.5999999999999"/><circle cx="1130" cy="500" r="212.7999999999999"/><circle cx="1130" cy="500" r="215.9999999999999"/><circle cx="1130" cy="500" r="224"/><circle cx="1130" cy="500" r="227.2"/><circle cx="1130" cy="500" r="230.39999999999998"/><circle cx="1130" cy="500" r="233.59999999999997"/><circle cx="1130" cy="500" r="236.79999999999995"/><circle cx="1130" cy="500" r="239.99999999999994"/><circle cx="1130" cy="500" r="243.19999999999993"/><circle cx="1130" cy="500" r="246.39999999999992"/><circle cx="1130" cy="500" r="249.5999999999999"/><circle cx="1130" cy="500" r="252.7999999999999"/><circle cx="1130" cy="500" r="255.9999999999999"/><circle cx="1130" cy="500" r="264"/><circle cx="1130" cy="500" r="267.2"/><circle cx="1130" cy="500" r="270.4"/><circle cx="1130" cy="500" r="273.59999999999997"/><circle cx="1130" cy="500" r="276.79999999999995"/><circle cx="1130" cy="500" r="279.99999999999994"/><circle cx="1130" cy="500" r="283.19999999999993"/><circle cx="1130" cy="500" r="286.3999999999999"/><circle cx="1130" cy="500" r="289.5999999999999"/><circle cx="1130" cy="500" r="292.7999999999999"/></g>
+        <circle class="th" cx="1130" cy="500" r="180"/><circle class="th" cx="1130" cy="500" r="220"/><circle class="th" cx="1130" cy="500" r="260"/>
+        <circle class="l" cx="1130" cy="500" r="314"/>
+        <circle class="rec-label" cx="1130" cy="500" r="120"/>
+        <circle class="rec-label-r" cx="1130" cy="500" r="74"/>
+        <text class="rec-lt"><textPath href="#recLabelP">CELESNICA · ARCHIVE · CH 01 — 04 · SIDE A · 45 RPM · </textPath></text>
+        <use href="#i-c" x="1100" y="468.5" width="60" height="63" class="rec-c"/>
+        <text class="rec-side" x="1130" y="562" text-anchor="middle">SIDE A</text>
+      </g>
+      <path class="rec-sheen" d="M1190.1 387 L1276.5 224.5 A312 312 0 0 1 1405.5 353.5 L1243 439.9 A128 128 0 0 0 1190.1 387Z"/>
+      <path class="rec-sheen" d="M1069.9 613 L983.5 775.5 A312 312 0 0 1 854.5 646.5 L1017 560.1 A128 128 0 0 0 1069.9 613Z"/>
+      <circle class="rec-spindle" cx="1130" cy="500" r="4.5"/>
+
+      <!-- tonearm: base, counterweight, tube with the 45° bend, headshell -->
+      <path class="l rec-base" d="M1478 186 L1562 186 L1578 202 L1578 274 L1562 290 L1478 290 L1462 274 L1462 202Z"/>
+      <circle class="d" cx="1520" cy="238" r="52"/>
+      <g class="rec-arm-g">
+        <path class="l rec-cw" d="M1500 136 h40 v44 l-8 8 h-24 l-8 -8z"/>
+        <line class="th" x1="1504" y1="150" x2="1536" y2="150"/><line class="th" x1="1504" y1="162" x2="1536" y2="162"/>
+        <path class="rec-tube" d="M1520 188 L1520 445 L1470 495"/>
+        <path class="rec-tube-in" d="M1520 188 L1520 445 L1470 495"/>
+        <path class="rec-shell" d="M1489.2 494.2 L1470.8 475.8 L1414.8 531.8 L1410.8 535.8 L1429.2 554.2Z"/>
+        <path class="l" d="M1462 512 l22 22 l8 -8"/>
+        <rect class="rec-cart" x="-9" y="-6" width="18" height="12" transform="translate(1425 541) rotate(45)"/>
+        <circle class="ldot rec-tip" cx="1415" cy="550" r="4.5"/>
+        <circle class="rec-tip-r" cx="1415" cy="550" r="11"/>
+      </g>
+      <circle class="l rec-pivot" cx="1520" cy="238" r="30"/>
+      <circle class="l" cx="1520" cy="238" r="15"/>
+      <circle class="ldot" cx="1520" cy="238" r="5"/>
+      <!-- arm rest + pitch fader -->
+      <line class="l" x1="1564" y1="600" x2="1564" y2="760"/><line class="th" x1="1550" y1="600" x2="1564" y2="600"/><line class="th" x1="1556" y1="616" x2="1564" y2="616"/><line class="th" x1="1550" y1="632" x2="1564" y2="632"/><line class="th" x1="1556" y1="648" x2="1564" y2="648"/><line class="th" x1="1550" y1="664" x2="1564" y2="664"/><line class="th" x1="1556" y1="680" x2="1564" y2="680"/><line class="th" x1="1550" y1="696" x2="1564" y2="696"/><line class="th" x1="1556" y1="712" x2="1564" y2="712"/><line class="th" x1="1550" y1="728" x2="1564" y2="728"/><line class="th" x1="1556" y1="744" x2="1564" y2="744"/><line class="th" x1="1550" y1="760" x2="1564" y2="760"/>
+      <path class="rec-knob" d="M1556 672 h20 l6 8 l-6 8 h-20z"/>
+      <text class="tm" x="1546" y="790" text-anchor="end">PITCH ±8</text>
+      <text class="ts" x="1318" y="176">A.</text><text class="tm" x="1354" y="176">45 RPM</text>
+      <text class="ts" x="664" y="216">B.</text><text class="tm" x="700" y="216">CH 01 — 04</text>
+    </svg>
+    <div class="ruler" aria-hidden="true"><span>CH 01</span><i></i><span>CH 04</span></div>
+    <div class="phero-in wrap">
+      <p class="tag"><b>[03]</b>Catalogue</p>
+      <h1 class="disp" data-st>Releases</h1>
+      <p class="lede">Filed by artist project. Each project is a channel, and new releases land in their channel first.</p>
+      <div class="phero-pills"><span class="chip">Projects <b>4</b></span><span class="chip">Filed <b>04</b></span></div>
+    </div>
+  </section>
+  <div class="tapes tapes-hero" aria-hidden="true">
+    <div class="tape tape-black" data-tape data-speed="1.15"><div class="tape-track"><div class="tape-group">
+      <span>Singles / Remixes / Game audio</span><i class="blk w3"></i><i class="blk w1"></i><span>The archive</span><i class="blk w4"></i><i class="blk w2"></i>
+    </div></div></div>
+    <div class="tape tape-lime" data-tape data-speed="-0.9"><div class="tape-track"><div class="tape-group">
+      <span>J-EDM</span><svg class="star"><use href="#i-star"/></svg><span>Organic</span><svg class="star"><use href="#i-star"/></svg><span>Missions</span><svg class="star"><use href="#i-star"/></svg><span>Worlds</span><svg class="star"><use href="#i-star"/></svg>
+    </div></div></div>
+  </div>
+
+  <div class="rwrap">
+    <div class="rbar wrap">
+      <nav class="rbar-in" aria-label="Projects">
+        <a class="rb jr-opt" href="#releases-jedm" data-go="jedm" data-cur="Jump"><svg class="ico" aria-hidden="true"><use href="#i-jedm"/></svg>J-EDM</a>
+        <a class="rb jr-opt" href="#releases-organic" data-go="organic" data-cur="Jump"><svg class="ico" aria-hidden="true"><use href="#i-organic"/></svg>Organic</a>
+        <a class="rb jr-opt" href="#releases-missions" data-go="missions" data-cur="Jump"><svg class="ico" aria-hidden="true"><use href="#i-missions"/></svg>Missions</a>
+        <a class="rb jr-opt" href="#releases-worlds" data-go="worlds" data-cur="Jump"><svg class="ico" aria-hidden="true"><use href="#i-worlds"/></svg>Worlds</a>
+        <a class="rb jr-opt" href="#releases-other" data-go="other" data-cur="Jump"><i>+</i>Remixes</a>
+      </nav>
+    </div>
+
+    <section class="rsec t-paper dots" data-tone="paper" data-anchor="releases-jedm" data-proj="jedm" data-side="Project 01 // CH-01" aria-labelledby="r1H">
+      <div class="wrap">
+        <div class="rsec-head">
+          <div class="rsec-t"><p class="tag"><b>[A]</b>Project 01 · CH-01</p><h2 class="disp" id="r1H" data-scr>J-EDM</h2><p class="rsec-d">Japanese style electronic music</p></div>
+          <div class="mini"><canvas data-mini="jedm" aria-hidden="true"></canvas></div>
+        </div>
+        <ul class="cards">
+          <li class="card"><div class="cover slot"><span>Slot 01</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+          <li class="card"><div class="cover slot"><span>Slot 02</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+          <li class="card"><div class="cover slot"><span>Slot 03</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="rsec t-blue dots" data-tone="blue" data-anchor="releases-organic" data-proj="organic" data-side="Project 02 // CH-02" aria-labelledby="r2H">
+      <div class="wrap">
+        <div class="rsec-head">
+          <div class="rsec-t"><p class="tag"><b>[B]</b>Project 02 · CH-02</p><h2 class="disp" id="r2H" data-scr>Organic</h2><p class="rsec-d">The exploration of sounds of nature into artistic expressions</p></div>
+          <div class="mini"><canvas data-mini="organic" aria-hidden="true"></canvas></div>
+        </div>
+        <ul class="cards">
+          <li class="card"><div class="cover slot"><span>Slot 01</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+          <li class="card"><div class="cover slot"><span>Slot 02</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+          <li class="card"><div class="cover slot"><span>Slot 03</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="rsec t-paper dots" data-tone="paper" data-anchor="releases-missions" data-proj="missions" data-side="Project 03 // CH-03" aria-labelledby="r3H">
+      <div class="wrap">
+        <div class="rsec-head">
+          <div class="rsec-t"><p class="tag"><b>[C]</b>Project 03 · CH-03</p><h2 class="disp" id="r3H" data-scr>Missions</h2><p class="rsec-d">The experiment of narrative expression in sci-fi through blending</p></div>
+          <div class="mini"><canvas data-mini="missions" aria-hidden="true"></canvas></div>
+        </div>
+        <ul class="cards">
+          <li class="card"><div class="cover slot"><span>Slot 01</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+          <li class="card"><div class="cover slot"><span>Slot 02</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+          <li class="card"><div class="cover slot"><span>Slot 03</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="rsec t-blue dots" data-tone="blue" data-anchor="releases-worlds" data-proj="worlds" data-side="Project 04 // CH-04" aria-labelledby="r4H">
+      <div class="wrap">
+        <div class="rsec-head">
+          <div class="rsec-t"><p class="tag"><b>[D]</b>Project 04 · CH-04</p><h2 class="disp" id="r4H" data-scr>Worlds</h2><p class="rsec-d">The songs and audios I made for commercial games</p></div>
+          <div class="mini"><canvas data-mini="worlds" aria-hidden="true"></canvas></div>
+        </div>
+        <ul class="cards">
+          <li class="card"><div class="cover" data-sweep><canvas data-cover data-title="STELLA SORA" data-sub="Yostar · game music" data-seed="37" data-code="WORLDS" aria-hidden="true"></canvas><span class="chip lime c-tag">Game music</span></div><p class="c-date">Yostar</p><p class="c-title">Stella Sora</p><p class="acc c-artist">Music contribution</p><p class="c-meta"><span class="chip line">Commercial game audio</span></p></li>
+          <li class="card"><div class="cover slot"><span>Slot 02</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+          <li class="card"><div class="cover slot"><span>Slot 03</span><b>TBA</b><span>Incoming</span></div><p class="c-date">— — —</p><p class="c-title">To be announced</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="rsec t-paper dots" data-tone="paper" data-anchor="releases-other" data-proj="other" data-side="Outside the four // archive" aria-labelledby="r5H">
+      <p class="gw" aria-hidden="true" data-ghost>Archive</p>
+      <div class="wrap">
+        <div class="rsec-head">
+          <div class="rsec-t"><p class="tag"><b>[+]</b>Outside the four projects</p><h2 class="disp" id="r5H"><span data-scr>Remixes</span> <span class="outline">&amp; archive</span></h2><p class="rsec-d">Official remixes, contest entries and releases from the No-One CN years</p></div>
+        </div>
+        <ul class="cards">
+          <li><a class="card" href="https://open.spotify.com/artist/3Y2WqblqWtFfsFufyvIwDU" target="_blank" rel="noopener" data-cur="Listen"><span class="cover" data-sweep><canvas data-cover data-title="未眠" data-sub="Vesk Green — Celesnica Remix" data-seed="11" data-code="2026" data-inv="1" aria-hidden="true"></canvas><span class="chip c-tag">Official remix</span></span><span class="c-date">2026</span><span class="c-title cjk">未眠 (No Sleep) — Celesnica Remix</span><span class="acc c-artist">Vesk Green</span><span class="c-meta"><span class="chip">Contest winner</span><span class="chip line">Spotify ↗</span></span></a></li>
+          <li><a class="card" href="https://soundcloud.com/celesnica" target="_blank" rel="noopener" data-cur="Listen"><span class="cover" data-sweep><canvas data-cover data-title="AWAKE" data-sub="Celesnica &amp; Akmmer Remix" data-seed="23" data-code="REMIX" aria-hidden="true"></canvas><span class="chip c-tag">Remix</span></span><span class="c-date">2026</span><span class="c-title">Awake — Celesnica &amp; Akmmer Remix</span><span class="acc c-artist">MitiS</span><span class="c-meta"><span class="chip">Remix contest</span><span class="chip line">SoundCloud ↗</span></span></a></li>
+          <li><a class="card" href="https://music.163.com/#/song?id=2740659439" target="_blank" rel="noopener" data-cur="Listen"><span class="cover" data-sweep><canvas data-cover data-title="SANCTUM" data-sub="No-One CN · 2088 Records" data-seed="52" data-code="2025" aria-hidden="true"></canvas><span class="chip c-tag">Single</span></span><span class="c-date">2025.08.06</span><span class="c-title">S A N C T U M</span><span class="acc c-artist">No-One CN</span><span class="c-meta"><span class="chip">Electro</span><span class="chip line">NetEase ↗</span></span></a></li>
+        </ul>
+        <p class="mono rel-foot">Cover images on this page are generated placeholders until official artwork is added.</p>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="view" data-view="contact" aria-label="Contact" hidden>
+  <section class="phero contact-hero t-black dots" data-tone="black">
+    <p class="mega" aria-hidden="true" data-ghost data-gs="-0.6"><span>No carrier</span> <span>CH 05</span> <span>// Reserved</span></p>
+    <div class="phero-in wrap">
+      <div class="c-grid">
+        <div class="c-txt">
+          <p class="tag"><b>[04]</b>Contact</p>
+          <h1 class="disp" data-st>Contact</h1>
+          <p class="lede">This channel is reserved. Contact details will be published here soon.</p>
+          <dl class="readout c-read">
+            <div><dt>Status</dt><dd><span class="blink" aria-hidden="true">●</span> No carrier</dd></div>
+            <div><dt>Channel</dt><dd>05 · Reserved</dd></div>
+            <div><dt>Meanwhile</dt><dd>Listen &amp; follow links are on the Information page</dd></div>
+          </dl>
+          <a class="btn lime" href="#information-links" data-cur="Open">Find Celesnica online <span class="ar" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="radar" id="radar" data-cur="Ping"><canvas id="radarCv" aria-hidden="true"></canvas><p class="mono radar-l" id="radarL">Click the radar to send a ping</p></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer class="foot t-black dots" data-tone="black">
+  <div class="tapes tapes-foot" aria-hidden="true">
+    <div class="tape tape-peri" data-tape data-speed="-1"><div class="tape-track"><div class="tape-group">
+      <span>Listen in</span><svg class="star"><use href="#i-star"/></svg><span>Spotify</span><svg class="star"><use href="#i-star"/></svg><span>SoundCloud</span><svg class="star"><use href="#i-star"/></svg><span>Instagram</span><svg class="star"><use href="#i-star"/></svg><span>X</span><svg class="star"><use href="#i-star"/></svg><span>YouTube</span><svg class="star"><use href="#i-star"/></svg><span>NetEase Cloud Music</span><svg class="star"><use href="#i-star"/></svg>
+    </div></div></div>
+  </div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="fb">
+        <a class="fb-lock" href="#home" aria-label="CELESNICA, home" data-cur="Home"><span class="cmark" data-cmark></span><span class="fb-n">CELESNICA</span></a>
+        <ol class="fb-roles" aria-label="Roles">
+          <li><i>01</i>Independent Artist</li>
+          <li><i>02</i>Music Producer</li>
+          <li><i>03</i>Sound Engineer</li>
+          <li><i>04</i>Label Manager</li>
+          <li><i>05</i>Game Composer</li>
+        </ol>
+      </div>
+      <div>
+        <h4>Listen</h4>
+        <ul>
+          <li><a href="https://open.spotify.com/artist/3Y2WqblqWtFfsFufyvIwDU" target="_blank" rel="noopener">Spotify</a></li>
+          <li><a href="https://soundcloud.com/celesnica" target="_blank" rel="noopener">SoundCloud</a></li>
+          <li><a href="https://163cn.tv/bkLNYZ0R" target="_blank" rel="noopener">NetEase Cloud Music</a></li>
+          <li><a href="https://youtube.com/@celesnica?si=y1GzksclObeIhuR9" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/celesnicamusic/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><span class="pend">X<i>Soon</i></span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Label</h4>
+        <ul>
+          <li><a href="https://2088.studio/" target="_blank" rel="noopener">2088 Records ↗</a></li>
+          <li><a href="#information">Information</a></li>
+          <li><a href="#releases">Releases</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 CELESNICA</span>
+      <span class="foot-bot-r">
+        <button class="totop" type="button" id="replayIntro" data-cur="Replay">Replay intro<b>▶</b></button>
+        <button class="totop" type="button" id="toTop" data-cur="Up">Back to top<b>↑</b></button>
+      </span>
+      <div class="foot-credit-row">
+        <a class="foot-credit" href="https://eilnoctis.com/" target="_blank" rel="noopener">Designed &amp; Built by EIL NOCTIS</a>
+      </div>
+    </div>
+  </div>
+  <p class="foot-mega" aria-hidden="true" data-ghost data-gs="0.5"><span>Celesnica</span></p>
+</footer>
+
+<div class="player" id="player">
+  <span class="pl-dot" aria-hidden="true"></span>
+  <span class="pl-st" id="plSt">Scanning</span>
+  <span class="pl-ch" id="plCh">TX 01</span>
+  <span class="pl-tc" id="plTc" aria-hidden="true">00:00:00</span>
+  <button class="pl-btn" id="soundBtn" type="button" aria-pressed="false" aria-label="Sound is off. Turn sound on" data-cur="Sound"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+</div>
+
+<div id="cur" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="cur-l" id="curL"></span></div>
+<div id="curDot" aria-hidden="true"></div>
+
+<div id="shutter" aria-hidden="true" hidden>
+  <div class="sh-rot">
+    <div class="sb"></div>
+    <div class="sb">
+      <svg class="sh-type" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <defs>
+          <text id="shThemeText" x="50%" y="97%" text-anchor="middle"></text>
+          <radialGradient id="shThemeGradient">
+            <stop offset="0" stop-color="white"/>
+            <stop offset=".35" stop-color="white" stop-opacity=".9"/>
+            <stop offset="1" stop-color="white" stop-opacity="0"/>
+          </radialGradient>
+          <mask id="shThemeMask" x="0" y="0" width="100%" height="100%" maskUnits="userSpaceOnUse">
+            <ellipse id="shThemeLight" cx="50%" cy="49%" rx="1.9%" ry="12%" fill="url(#shThemeGradient)"/>
+          </mask>
+        </defs>
+        <g id="shThemeRun">
+          <use class="sh-type-outline" href="#shThemeText"/>
+          <use class="sh-type-highlight" href="#shThemeText" mask="url(#shThemeMask)"/>
+        </g>
+      </svg>
+    </div>
+    <div class="sb"></div>
+    <div class="sb"><span class="sh-label" id="shLabel"><small>Tuning</small>Home</span></div>
+    <div class="sb"></div>
+  </div>
+</div>
+
+<div id="intro" role="region" aria-label="Celesnica intro" hidden>
+  <p class="in-ghost" aria-hidden="true"><span>Celesnica</span><span>Signal // 2026</span></p>
+  <div class="in-stage" id="inStage">
+    <svg class="dg drawn in-dg" viewBox="0 0 800 800" aria-hidden="true">
+      <circle class="f" cx="400" cy="400" r="340"/>
+      <circle class="l draw" pathLength="1" cx="400" cy="400" r="340"/>
+      <circle class="l draw" pathLength="1" cx="400" cy="400" r="196"/>
+      <line class="l draw" pathLength="1" x1="400" y1="20" x2="400" y2="780"/>
+      <line class="th" x1="20" y1="400" x2="780" y2="400"/>
+      <ellipse class="l draw" pathLength="1" cx="400" cy="400" rx="380" ry="100" transform="rotate(-14 400 400)"/>
+      <line class="blade" id="inBlade" pathLength="1" x1="90" y1="710" x2="710" y2="90"/>
+      <circle class="dot" cx="400" cy="60" r="5"/><circle class="ldot" cx="640" cy="160" r="7"/>
+      <text class="ts" x="560" y="140">A.</text><text class="tm" x="596" y="140">SIGNAL</text>
+      <text class="ts" x="96" y="672">B.</text><text class="tm" x="132" y="672">CH 00 — LOCK</text>
+    </svg>
+    <svg class="dg in-ring" viewBox="0 0 800 800" aria-hidden="true"><circle class="d" cx="400" cy="400" r="292"/></svg>
+    <svg class="dg in-ring in-ring-ticks" viewBox="0 0 800 800" aria-hidden="true"><g id="inTicks"></g></svg>
+    <svg class="dg in-ring in-ring-text" viewBox="0 0 800 800" aria-hidden="true">
+      <path id="inRingP" fill="none" d="M400,400 m-226,0 a226,226 0 1,1 452,0 a226,226 0 1,1 -452,0"/>
+      <text class="tm tring-t"><textPath href="#inRingP">CELESNICA · INDEPENDENT ARTIST · MUSIC PRODUCER · SOUND ENGINEER · LABEL MANAGER · GAME COMPOSER · </textPath></text>
+    </svg>
+    <div class="in-orbit" id="inOrbit"></div>
+    <canvas class="metal in-metal" id="inMetal"></canvas>
+    <svg class="in-c" id="inC" viewBox="-.4 -.4 10.8 11.4"></svg>
+    <div class="in-hud" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <p class="in-lock" id="inLock"><span>Signal</span><b>Locked</b></p>
+  </div>
+  <i class="in-checker" id="inChk"></i>
+  <div class="in-meta"><span>Establishing signal <b id="inPct">000</b></span><span class="in-freq">CH 00 · 45.00 · C.01</span><button class="in-skip" id="inSkip" type="button">Skip intro</button></div>
+</div>
+
+<div class="sr" aria-live="polite" id="live"></div>
