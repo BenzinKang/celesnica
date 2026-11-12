@@ -1063,5 +1063,19 @@ html.js .dg.rec:not(.drawn) .rec-arm-g{transform:rotate(-17deg)}
   .lbs-stage{--w:min(440px,74vw)}
   @supports (width:1cqw){.lbs-stage{--w:min(440px,74cqw);aspect-ratio:1/.86}}
   .lbs-l .btn{order:5}
+/* ---------- Release card hover compatibility ---------- */
+
+/* Hover lift + animated shadow */
+.rsec .card:hover .cover,
+.rsec .card:focus-within .cover {
+  transform: translate(-5px, -5px);
+  box-shadow: 10px 10px 0 var(--lime);
+}
+
+/* Paper sections use blue shadow */
+.rsec.t-paper .card:hover .cover,
+.rsec.t-paper .card:focus-within .cover {
+  box-shadow: 10px 10px 0 var(--blue);
+}
 }
 @media (prefers-reduced-motion:reduce){.lbs-card{transition:none}}
