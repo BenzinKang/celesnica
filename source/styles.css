@@ -1065,3 +1065,23 @@ html.js .dg.rec:not(.drawn) .rec-arm-g{transform:rotate(-17deg)}
   .lbs-l .btn{order:5}
 }
 @media (prefers-reduced-motion:reduce){.lbs-card{transition:none}}
+
+/* ---------- Release Card Hover Lift ---------- */
+
+.rsec .card .cover {
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
+}
+
+.rsec .card:hover .cover,
+.rsec .card:focus-within .cover {
+  transform: translate(-5px, -5px);
+  box-shadow: 10px 10px 0 var(--lime);
+}
+
+/* Paper theme: blue offset shadow */
+.rsec.t-paper .card:hover .cover,
+.rsec.t-paper .card:focus-within .cover {
+  box-shadow: 10px 10px 0 var(--blue);
+}
