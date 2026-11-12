@@ -622,9 +622,16 @@ a.lt:hover .lt-ico{transform:translate(2px,-2px) rotate(-8deg)}
 .card{display:grid;gap:12px;align-content:start;min-width:0}
 .cover{position:relative;aspect-ratio:1;max-width:100%;border:1.5px solid currentColor;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .cover canvas{position:absolute;inset:0;width:100%;height:100%}
-a.card:hover .cover,a.card:focus-visible .cover{transform:translate(-5px,-5px);box-shadow:10px 10px 0 var(--lime)}
-.t-paper a.card:hover .cover,.t-paper a.card:focus-visible .cover{box-shadow:10px 10px 0 var(--blue)}
-a.card:focus-visible{outline:none}
+.rsec .card:hover .cover,
+.rsec .card:focus-within .cover {
+  transform: translate(-5px,-5px);
+  box-shadow: 10px 10px 0 var(--lime);
+}
+
+.rsec.t-paper .card:hover .cover,
+.rsec.t-paper .card:focus-within .cover {
+  box-shadow: 10px 10px 0 var(--blue);
+}
 a.card:focus-visible .c-title{text-decoration:underline}
 .c-tag{position:absolute;left:10px;top:10px;z-index:2}
 .c-date{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.04em;color:var(--acc)}
